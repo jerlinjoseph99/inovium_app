@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/science'
+  get 'pages/faq'
   
   root 'pages#home'
 

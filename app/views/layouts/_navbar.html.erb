@@ -1,4 +1,12 @@
- <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
+<!-- Pre-loader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner">Loading...</div>
+            </div>
+        </div>
+        <!-- End Preloader-->
+        
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
             <div class="container">
                 <!-- LOGO -->
                 <a class="logo text-uppercase" href="index.html">
@@ -11,16 +19,16 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto navbar-center" id="mySidenav">
                         <li class="nav-item active">
-                            <a href="#home" class="nav-link">Home</a>
+                            <%= link_to "Home", pages_home_path, class: "nav-link" %>
                         </li>
                         <li class="nav-item">
-                            <a href="#about" class="nav-link">About</a>
+                            <%= link_to "About", pages_about_path, class: "nav-link" %>
                         </li>
                         <li class="nav-item">
-                            <a href="#features" class="nav-link">Features</a>
+                            <%= link_to "Science", pages_science_path, class: "nav-link" %>
                         </li>
                         <li class="nav-item">
-                            <a href="#services" class="nav-link">Services</a>
+                            <%= link_to "Faq", pages_faq_path, class: "nav-link" %>
                         </li>
                         <li class="nav-item">
                             <a href="#testimonial" class="nav-link">Testimonial</a>

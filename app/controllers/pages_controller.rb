@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def science
   end
+  
+  def faq
+  end
 end
