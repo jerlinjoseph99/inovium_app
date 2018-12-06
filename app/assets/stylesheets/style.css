@@ -88,7 +88,7 @@ p {
 
 /* ============
    2. Preloader
-===============*/
+
 
 #preloader {
     position: fixed;
@@ -152,6 +152,7 @@ p {
         transform: rotate(360deg);
     }
 }
+===============*/
 
 /*****************
     3. Helper
@@ -472,7 +473,7 @@ a.text-custom:hover {
 
 .bg-home {
     position: relative;
-    background-image: url(../images/bg-home.png);
+    /*background-image: url(../images/bg-home.png);*/
     background-color: #1f2d4e;
     padding: 230px 0px 180px 0px;
     background-size: cover;

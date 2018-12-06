@@ -1,0 +1,55 @@
+
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<%= form_with(model: contact, local: true) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row">
+    <div class="col-lg-6">
+       <!--%= form.label :name %-->
+       <%= form.text_field :contact_name, id: :contact_name, class: "form-control" , placeholder: "Enter your Name*" %>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+           <%= form.text_field :contact_email, id: :contact_email, class: "form-control" , placeholder: "Enter your Email*" %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12">
+       <div class="form-group">
+           <%= form.text_field :contact_subject, id: :contact_subject, class: "form-control" , placeholder: "Enter Subject*" %>
+      </div>     
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+           <%= form.text_area :contact_message, id: :contact_message, rows: "7", class: "form-control" , placeholder: "Enter Message" %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-12">
+      <div class="submit text-center">
+            <%= form.submit "SUBMIT", class: "btn btn-primary btn-lg"%>
+            <p class="pt-3">* We will not spam your inbox.</p>
+      </div>
+  </div>
+
+  <div class="actions">
+    
+  </div>
+<% end %>
+
+</div>
+</div>

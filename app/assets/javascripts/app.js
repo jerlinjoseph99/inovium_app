@@ -11,112 +11,114 @@
     var Zairo = function() {};
 
     Zairo.prototype.initStickyMenu = function() {
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
 
-            if (scroll >= 50) {
-                $(".sticky").addClass("nav-sticky");
-            } else {
-                $(".sticky").removeClass("nav-sticky");
-            }
-        });
-    },
+                if (scroll >= 50) {
+                    $(".sticky").addClass("nav-sticky");
+                }
+                else {
+                    $(".sticky").removeClass("nav-sticky");
+                }
+            });
+        },
 
-    Zairo.prototype.initSmoothLink = function() {
-        $('.nav-item a, .mouse-down a').on('click', function(event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top - 0
-            }, 1500, 'easeInOutExpo');
-            event.preventDefault();
-        });
-    },
+        Zairo.prototype.initSmoothLink = function() {
+            $('.nav-item a, .mouse-down a').on('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top - 0
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        },
 
-    Zairo.prototype.initScrollspy = function() {
-        $("#navbarCollapse").scrollspy({
-            offset: 70
-        });
-    },
+        Zairo.prototype.initScrollspy = function() {
+            $("#navbarCollapse").scrollspy({
+                offset: 70
+            });
+        },
 
-    Zairo.prototype.initLoader = function() {
-        $(window).on('load', function () {
-            $('#status').fadeOut();
-            $('#preloader').delay(350).fadeOut('slow');
-        });
-    }
+        Zairo.prototype.initLoader = function() {
+            $(window).on('load', function() {
+                $('#status').fadeOut();
+                $('#preloader').delay(350).fadeOut('slow');
+            });
+        }
 
     Zairo.prototype.initMfpvideo = function() {
-        $('.video-play-icon').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
-    },
+            /* $('.video-play-icon').magnificPopup({
+                 disableOn: 700,
+                 type: 'iframe',
+                 mainClass: 'mfp-fade',
+                 removalDelay: 160,
+                 preloader: false,
+                 fixedContentPos: false
+             });*/
+        },
 
-    Zairo.prototype.initBacktoTop = function() {
-        $(window).scroll(function(){
-            if ($(this).scrollTop() > 100) {
-                $('.back-to-top').fadeIn();
-            } else {
-                $('.back-to-top').fadeOut();
-            }
-        }); 
-        $('.back-to-top').click(function(){
-            $("html, body").animate({ scrollTop: 0 }, 1000);
-            return false;
-        });
-    },
+        Zairo.prototype.initBacktoTop = function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.back-to-top').fadeIn();
+                }
+                else {
+                    $('.back-to-top').fadeOut();
+                }
+            });
+            $('.back-to-top').click(function() {
+                $("html, body").animate({ scrollTop: 0 }, 1000);
+                return false;
+            });
+        },
 
-    Zairo.prototype.initContact = function() {
-        
-        $('#contact-form').submit(function() {
+        Zairo.prototype.initContact = function() {
 
-            var action = $(this).attr('action');
+            $('#contact-form').submit(function() {
 
-            $("#message").slideUp(750, function() {
-                $('#message').hide();
+                var action = $(this).attr('action');
 
-                $('#submit')
-                    .before('')
-                    .attr('disabled', 'disabled');
+                $("#message").slideUp(750, function() {
+                    $('#message').hide();
 
-                $.post(action, {
-                        name: $('#name').val(),
-                        email: $('#email').val(),
-                        comments: $('#comments').val(),
-                    },
-                    function(data) {
-                        document.getElementById('message').innerHTML = data;
-                        $('#message').slideDown('slow');
-                        $('#cform img.contact-loader').fadeOut('slow', function() {
-                            $(this).remove()
-                        });
-                        $('#submit').removeAttr('disabled');
-                        if (data.match('success') != null) $('#cform').slideUp('slow');
-                    }
-                );
+                    $('#submit')
+                        .before('')
+                        .attr('disabled', 'disabled');
+
+                    $.post(action, {
+                            name: $('#name').val(),
+                            email: $('#email').val(),
+                            comments: $('#comments').val(),
+                        },
+                        function(data) {
+                            document.getElementById('message').innerHTML = data;
+                            $('#message').slideDown('slow');
+                            $('#cform img.contact-loader').fadeOut('slow', function() {
+                                $(this).remove()
+                            });
+                            $('#submit').removeAttr('disabled');
+                            if (data.match('success') != null) $('#cform').slideUp('slow');
+                        }
+                    );
+
+                });
+
+                return false;
 
             });
+        },
 
-            return false;
-
-        });
-    },
-
-    Zairo.prototype.init = function() {
-        this.initStickyMenu();
-        this.initSmoothLink();
-        this.initScrollspy();
-        this.initLoader();
-        this.initMfpvideo();
-        this.initBacktoTop();
-        this.initContact();
-    },
-    //init
-    $.Zairo = new Zairo, $.Zairo.Constructor = Zairo
+        Zairo.prototype.init = function() {
+            this.initStickyMenu();
+            this.initSmoothLink();
+            this.initScrollspy();
+            this.initLoader();
+            this.initMfpvideo();
+            this.initBacktoTop();
+            this.initContact();
+        },
+        //init
+        $.Zairo = new Zairo, $.Zairo.Constructor = Zairo
 }(window.jQuery),
 
 //initializing

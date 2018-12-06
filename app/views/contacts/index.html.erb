@@ -1,0 +1,64 @@
+ <div class="bg-contact">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 col-lg-8 text-center">
+
+                    <!-- Heading -->
+                    <h2 class="lg-title mb-2">
+                         Contacts
+                    </h2>
+
+                    <!-- Subheading -->
+                    <p class="mb-2">
+                        Details of the users coming through the contact form.
+                    </p>
+
+                </div>
+            </div>
+            <!-- / .row -->
+            
+            <p id="notice"><%= notice %></p>
+            
+            <table class="table table-striped ">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+                    <th scope="col" >Actions</th>
+                    
+                </tr>
+              </thead>
+              <tbody>
+                <% @contacts.each_with_index do |contact,index| %>
+                <tr>
+                  <th scope="row"><%= index + 1 %></th>
+                  <td><%= contact.contact_name %></td>
+                  <td><%= contact.contact_email %></td>
+                  <td><%= contact.contact_subject %></td>
+                  <td><%= contact.contact_message %></td>
+                  <td>
+                      <%= link_to '', contact, class: "mdi mdi-eye"  %>
+                      <%= link_to '', edit_contact_path(contact),class: " mdi mdi-account-edit" %>
+                      <%= link_to '', contact, class: "mdi mdi-delete", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+            
+        </div>
+        
+        <div>
+        <%= link_to "Contact", new_contact_path, class: " " %>
+        </div>
+        
+         <div class="">
+             Welcome
+           
+         </div>
+        
+ </div>  
+ 
+
